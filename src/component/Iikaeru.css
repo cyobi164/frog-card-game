@@ -1,46 +1,113 @@
-/*---welcome page---*/
-.welcome-screen{
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    background-color: #000;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 100;
-    animation: fadeOut 5s ease-out forwards;
-    pointer-events: none;
+/* --- Welcome Screen --- */
+.welcome-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: black; /* Background for welcome */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+  animation: fadeOut 5s ease-out forwards; /* Fade out animation */
 }
 
-.welcome-logo{
-    width: 200px;
-    height: auto;
+.welcome-logo {
+  width: 200px; /* Adjust logo size */
+  height: auto;
+  opacity: 1;
+  transform: scale(1);
+  animation: logoZoom 5s ease-out forwards;
+}
+
+/* Fade out animation */
+@keyframes fadeOut {
+  0% {
     opacity: 1;
-    transform: scale(1);
-    animation: logoZoom 5s ease-out forwards;
+  }
+  100% {
+    opacity: 0;
+  }
 }
 
-/*fade out animation*/
-@keyframes fadeOut{
-    0%{
-        opacity: 1;
-    }
-    100%{
-        opacity: 0;
-        visibility: hidden;
-    }
-}
-
-/*logo zoom animation*/
+/* Logo zoom-in effect */
 @keyframes logoZoom {
-    0%{
-        transform: scale(0.8);
-        opacity: 0;
-    }
-    100%{
-        transform: scale(1);
-        opacity: 1;
-    }
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+/* --- Rulebook Section --- */
+#bottom-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+  overflow: hidden;
+}
+
+.bottom {
+  width: 90%;
+  max-width: 800px;
+  height: 70vh; /* Set a fixed height for the box */
+  overflow-y: auto; /* Allow scrolling if needed */
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  overflow-x: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #888 #f5f5f5;
+  opacity: 1;
+  transform: translateY(50px);
+  transition: transform 0.5s ease-out, opacity 0.5s ease-out;
+}
+
+.bottom img {
+  width: 100%; /* Adjust the width (e.g., 50%, 80%, etc.) */
+  max-width: 400px; /* Limit max width */
+  height: auto; /* Keep aspect ratio */
+}
+
+/* Show rulebook when scrolling */
+.bottom.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- Rulebook Side-by-Side Scrolling --- */
+.rule-container {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+  overflow-x: auto;
+  padding: 20px;
+  scroll-snap-type: x mandatory;
+}
+
+.rule-container img {
+  flex: 0 0 auto;
+  width: 300px;
+  height: auto;
+  border-radius: 10px;
+  scroll-snap-align: start;
+}
+
+.rule-container::-webkit-scrollbar {
+  height: 8px;
+}
+
+.rule-container::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 10px;
+}
+
+.rule-container::-webkit-scrollbar-track {
+  background-color: #f5f5f5;
 }

@@ -53,9 +53,14 @@ const Iikaeru = () => {
         </div>
       )}
 
+      <section id="top-section">
+        <div className="top">
+            <img src={logo} className="top-img" alt="top-image" />
+        </div>
+      </section>
+
       <section id="bottom-section">
         <div className={`bottom ${show ? "show" : ""}`}>
-          <h1>Rule</h1>
           <img src={Rulebook01} className="rule01" alt="Rulebook page 1" />
           <img src={Rulebook02} className="rule02" alt="Rulebook page 2" />
           <img src={Rulebook03} className="rule03" alt="Rulebook page 3" />
