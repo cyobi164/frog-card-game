@@ -62,7 +62,6 @@ const Iikaeru = () => {
           <img src={Rulebook04} className="rule04" alt="Rulebook page 4" />
           <img src={Rulebook05} className="rule05" alt="Rulebook page 5" />
           <img src={Rulebook06} className="rule06" alt="Rulebook page 6" />
-          <img src={Rulebook06} className="rule06" alt="Rulebook page 6" />
         </div>
       </section>
     </>
