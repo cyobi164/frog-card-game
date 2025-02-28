@@ -44,51 +44,51 @@
 }
 /*top section*/
 #top-section {
-    position: relative;
-    overflow: hidden;
-    justify-content: center;
-    display: flex;
-    align-items: center;
+  position: relative;
+  overflow: hidden;
+  justify-content: center;
+  display: flex;
+  align-items: center;
 }
 
 /*grid layout for positioning*/
+/* Center the top section */
 #top-section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 40px 20px;
-  background-color: #eaedec; /* Light background */
   position: relative;
+  display: flex;
+  justify-content: center; /* Centers horizontally */
+  align-items: center; /* Centers vertically */
+  height: 100vh; /* Take full screen height */
+
 }
 
-
-/* Stack all images behind the logo */
+/* Ensure the .top container has enough space */
 .top {
-    position: relative;
-    width: 250px; /* Adjust width */
-    height: 250px; /* Make it square */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-  }
-  
-  /* Ensure the logo is perfectly centered */
-  .top-img {
-    width: 150px; /* Adjust size */
-    height: auto;
-    z-index: 10;
-    position: absolute; /* Keep it in place */
-  }
-  
-  /* Card positioning - initially hidden */
-  .top img:not(.top-img) {
-    position: absolute;
-    width: 100px; /* Smaller size */
-    height: auto;
-    opacity: 0;
-    transition: transform 0.5s ease, opacity 0.5s ease;
-  }
+  position: relative;
+  width: 300px; /* Adjusted width */
+  height: 650px; /* Keep height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+/* Ensure the logo is perfectly centered */
+.top-img {
+  width: 300px; /* Adjust size */
+  height: auto;
+  z-index: 10;
+  position: absolute; /* Keep it in place */
+}
+
+/* Card positioning - initially hidden */
+.top img:not(.top-img) {
+  position: absolute;
+  width: 120px; /* Smaller size */
+  height: auto;
+  opacity: 0;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
 
 /* Hover Effect for Desktop */
 @media (hover: hover) {
@@ -97,19 +97,19 @@
   }
 
   .top:hover .card-01 {
-    transform: translate(-200px, 200px);
+    transform: translate(-260px, -90px); /* Adjusted left */
   }
   .top:hover .card-02 {
-    transform: translate(-250px, -100px);
+    transform: translate(260px, -80px); /* Adjusted right */
   }
   .top:hover .card-03 {
-    transform: translate(100px, 200px);
+    transform: translate(-260px, 100px); /* Adjusted bottom-left */
   }
   .top:hover .card-04 {
-    transform: translate(130px, -100px);
+    transform: translate(260px, 110px); /* Adjusted bottom-right */
   }
   .top:hover .Any {
-    transform: translate(-50px, 200px);
+    transform: translate(0px, 350px); /* Center-bottom */
   }
 }
 
