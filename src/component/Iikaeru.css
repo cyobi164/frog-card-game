@@ -42,6 +42,99 @@
     opacity: 1;
   }
 }
+/*top section*/
+#top-section {
+    position: relative;
+    overflow: hidden;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+
+/*grid layout for positioning*/
+#top-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 20px;
+  background-color: #eaedec; /* Light background */
+  position: relative;
+}
+
+
+/* Stack all images behind the logo */
+.top {
+    position: relative;
+    width: 250px; /* Adjust width */
+    height: 250px; /* Make it square */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  /* Ensure the logo is perfectly centered */
+  .top-img {
+    width: 150px; /* Adjust size */
+    height: auto;
+    z-index: 10;
+    position: absolute; /* Keep it in place */
+  }
+  
+  /* Card positioning - initially hidden */
+  .top img:not(.top-img) {
+    position: absolute;
+    width: 100px; /* Smaller size */
+    height: auto;
+    opacity: 0;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+  }
+
+/* Hover Effect for Desktop */
+@media (hover: hover) {
+  .top:hover img:not(.top-img) {
+    opacity: 1;
+  }
+
+  .top:hover .card-01 {
+    transform: translate(-200px, 200px);
+  }
+  .top:hover .card-02 {
+    transform: translate(-250px, -100px);
+  }
+  .top:hover .card-03 {
+    transform: translate(100px, 200px);
+  }
+  .top:hover .card-04 {
+    transform: translate(130px, -100px);
+  }
+  .top:hover .Any {
+    transform: translate(-50px, 200px);
+  }
+}
+
+/* Touch Effect for Mobile */
+@media (max-width: 768px) {
+  .top.active img:not(.top-img) {
+    opacity: 1;
+  }
+
+  .top.active .card-01 {
+    transform: translate(-90px, -30px);
+  }
+  .top.active .card-02 {
+    transform: translate(90px, -30px);
+  }
+  .top.active .card-03 {
+    transform: translate(-70px, 50px);
+  }
+  .top.active .card-04 {
+    transform: translate(70px, 50px);
+  }
+  .top.active .Any {
+    transform: translate(0px, 80px);
+  }
+}
 
 /* --- Rulebook Section --- */
 #bottom-section {
@@ -60,7 +153,7 @@
   padding: 20px;
   background-color: rgba(255, 255, 255, 0.9);
   border-radius: 20px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.9);
   overflow-x: auto;
   scrollbar-width: thin;
   scrollbar-color: #888 #f5f5f5;

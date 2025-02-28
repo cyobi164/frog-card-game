@@ -1,4 +1,4 @@
-import React, {useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import A001 from "../assets/photo/A001.png";
 import A003 from "../assets/photo/A003.png";
 import B001 from "../assets/photo/B001.png";
@@ -17,6 +17,7 @@ import "./Iikaeru.css";
 const Iikaeru = () => {
   const [showWelcome, setShowWelcome] = useState(true);
   const [show, setShow] = useState(false);
+  const [showCards, setShowCards] = useState(false);
 
   //welcome screen animation
   useEffect(() => {
@@ -27,6 +28,7 @@ const Iikaeru = () => {
     return () => clearTimeout(welcomeTimer);
   }, []);
 
+  //scroll animation
   useEffect(() => {
     const handleScroll = () => {
       const bottomSection = document.getElementById("bottom-section");
@@ -44,18 +46,43 @@ const Iikaeru = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  //show card and touch
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (!event.target.closest(".top")) {
+        setShowCards(flase);
+      }
+    };
+
+    document.addEventListener("click", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, []);
+
+  // Toggle card visibility on mobile
+  const handleTouch = () => {
+    setShowCards(!showCards);
+  };
+
   return (
     <>
       {/*welcome screen*/}
       {showWelcome && (
         <div className="welcome-screen">
-            <img src={logo} className="welcome-logo" alt="welcome-logo" />
+          <img src={logo} className="welcome-logo" alt="welcome-logo" />
         </div>
       )}
 
       <section id="top-section">
-        <div className="top">
-            <img src={logo} className="top-img" alt="top-image" />
+      <div className={`top ${showCards ? "active" : ""}`} onClick={handleTouch}>
+          <img src={A003} className="card-03" alt="card-03" />
+          <img src={B008} className="card-04" alt="card-04" />
+          <img src={B001} className="card-02" alt="card-02" />
+          <img src={A001} className="card-01" alt="card-01" />
+          <img src={B091} className="Any" alt="card-05" />
+          <img src={logo} className="top-img" alt="top-image" />
         </div>
       </section>
 
