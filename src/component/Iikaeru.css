@@ -10,7 +10,7 @@
   justify-content: center;
   align-items: center;
   z-index: 100;
-  animation: fadeOut 5s ease-out forwards; /* Fade out animation */
+  animation: fadeOut 2s ease-out forwards; /* Fade out animation */
 }
 
 .welcome-logo {
@@ -18,7 +18,7 @@
   height: auto;
   opacity: 1;
   transform: scale(1);
-  animation: logoZoom 5s ease-out forwards;
+  animation: logoZoom 2s ease-out forwards;
 }
 
 /* Fade out animation */
