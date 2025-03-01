@@ -1,3 +1,14 @@
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh; /* Ensure full height */
+  margin: 0;
+  text-align: center;
+  background-color: #f9f9f9; /* Light background for contrast */
+}
+
 /* --- Welcome Screen --- */
 .welcome-screen {
   position: fixed;
@@ -59,7 +70,6 @@
   justify-content: center; /* Centers horizontally */
   align-items: center; /* Centers vertically */
   height: 100vh; /* Take full screen height */
-
 }
 
 /* Ensure the .top container has enough space */
