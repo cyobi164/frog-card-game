@@ -33,10 +33,9 @@ const Iikaeru = () => {
     const handleScroll = () => {
       const bottomSection = document.getElementById("bottom-section");
       if (bottomSection) {
+        const sectionPosition = bottomSection.offsetTop;
         const scrollPosition =
           window.scrollY + window.innerHeight >= sectionPosition;
-        const sectionPosition = bottomSection.offsetTop;
-
         if (scrollPosition > sectionPosition + 100) {
           setShow(true);
         }
@@ -64,7 +63,7 @@ const Iikaeru = () => {
 
   // Toggle card visibility on mobile
   const handleTouch = () => {
-    setShowCards(!showCards);
+    setShowCards((prev) => !prev);
   };
 
   return (
@@ -81,14 +80,14 @@ const Iikaeru = () => {
           className={`top ${showCards ? "active" : ""}`}
           onClick={handleTouch}
         >
+          <img src={logo} className="top-img" alt="top-image"/>
           <img src={A003} className="card-03" alt="card-03" />
           <img src={B008} className="card-04" alt="card-04" />
           <img src={B001} className="card-02" alt="card-02" />
           <img src={A001} className="card-01" alt="card-01" />
           <img src={B091} className="Any" alt="card-05" />
-          <img src={logo} className="top-img" alt="top-image" />
         </div>
-        <h1>新感覚のカードゲーム</h1>
+        <h1 className="top-title">新感覚のカードゲーム</h1>
         <button className="buy">今すぐ購入する</button>
       </section>
 
